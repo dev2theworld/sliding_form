@@ -170,5 +170,47 @@ button.ghost {
 
 .overlay-left {
  transform: translateX(-20%);
- /*to przesunięcie na osi X symuluje ruch wchodzącego/przesuwającego się tekstu zamiast statycznego pojawienia się*/
+ /*to przesunięcie na osi X symuluje ruch wchodzącego/przesuwającego się tekstu zamiast statycznego pojawienia się
+   w trakcie dodawania klasy right-panel-active translateX przechodzi w wartość 0 dając efekt ruchu
+   podobnie wygląda sytuacja w przypadku .overlay-left - tu do wartości bazowej 0 dodajemy 20%*/
+}
+
+
+
+/* Animation - displays when right-panel-active is activated - after clicking Sign Up button */
+/* 1st - switch sign with overlay, 2nd - after switching push sign up over sign in (the're stocked)
+   3rd - move overlay back to the right (switching between hello & welcome back)
+   4th - add moving in effects for h1s with hello friend & welcome back */
+
+
+/* Move sign to the right */
+.container.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+}
+
+/* Move overlay to the left */
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+/* Bring Sign Up over Sign In after switching places */
+.container.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* Move overlay back to the right */
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+/* Making h1 with welcome back moving effect (instead of just popping up) */
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+/* Making h1 with hello friend moving effect (instead of just popping up) */
+.container.right-panel-active .overlay-right {
+  transform: translateX(20%);
 }
